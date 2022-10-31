@@ -1,0 +1,17 @@
+/vendor
+composer.lock
+composer.phar
+
+.DS_Store
+Thumbs.db
+tests/.phpunit.result.cache
+/tests/integration/tmp
+.vagrant
+.idea/*
+.vscode
+js/coverage-ts
+
+/vendor/*
+!/vendor/jos-php-open-api-sdk-2.0/
+tests/
+./js/node_modules/*
