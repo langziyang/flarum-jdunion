@@ -39,6 +39,7 @@ class WhenForumSerializer
             if ($ids !== null) {
                 $eid = explode('|', $ids);
             }
+            $eid = array_filter($eid);
             if (count($eid) === 0) {
                 $eid = [1, 2, 10];
             }
