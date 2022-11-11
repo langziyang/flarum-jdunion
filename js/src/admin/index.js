@@ -32,6 +32,12 @@ app.initializers.add('jinber-jdunion', () => {
         a: <a href='https://union.jd.com/manager/promotionSite'></a>
       })
     })
+    .registerSetting({
+      setting: 'jinber-jdunion.count_page',
+      label: app.translator.trans('jinber-jdunion.admin.setting.count'),
+      type: 'number',
+      help: app.translator.trans('jinber-jdunion.admin.setting.count_help')
+    })
 });
 //b2551d2485cf5974c675b144725424fb
 //b38cb37336884e1eb404768e2672a8c8

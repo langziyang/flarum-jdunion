@@ -13,7 +13,11 @@ class WhenForumSerializer
 
     public function __invoke(ForumSerializer $serializer, $module)
     {
-        return ['products' => $this->getJdUnionProduct()];
+        $count = $this->settings->get('jinber-union.count_page');
+        if ($count === null || $count === '') {
+            $count = 5;
+        }
+        return ['products' => $this->getJdUnionProduct(), 'count_number' => $count];
     }
 
     private function getJdUnionProduct()
@@ -24,10 +28,10 @@ class WhenForumSerializer
             $client = new \JdClient();
             $key = $this->settings->get('jinber-union.jdunion_appkey');
             $secret = $this->settings->get('jinber-union.jdunion_appsecretkey');
-            if ($key === '') {
+            if ($key === '' || $key === null) {
                 $key = 'b2551d2485cf5974c675b144725424fb';
             }
-            if ($secret === '') {
+            if ($secret === '' || $secret === null) {
                 $secret = 'b38cb37336884e1eb404768e2672a8c8';
             }
             $client->appKey = $key;
